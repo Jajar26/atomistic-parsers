@@ -25,6 +25,8 @@ from nomad.units import ureg
 
 from nomad.parsing.file_parser import Quantity, TextParser
 from runschema.run import Run, Program
+from runschema.calculation import Calculation
+from runschema.system import System, AtomsGroup
 from runschema.method import (
     NeighborSearching,
     ForceCalculations,
@@ -33,7 +35,6 @@ from runschema.method import (
     Model,
     AtomParameters,
 )
-from runschema.system import AtomsGroup
 from simulationworkflowschema import (
     GeometryOptimization,
     GeometryOptimizationMethod,
