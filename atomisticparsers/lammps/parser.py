@@ -765,7 +765,7 @@ class LogParser(TextParser):
             # TODO improve matching of traj file
             traj_files = os.listdir(self.maindir)
             traj_files = [
-                f for f in traj_files if f.endswith('trj') or f.endswith('xyz') or f.endswith('dump')
+                f for f in traj_files if f.endswith('trj') or f.endswith('xyz') #or f.endswith('dump')
             ]
             # further eliminate
             if len(traj_files) > 1:
@@ -800,7 +800,7 @@ class LogParser(TextParser):
             self.logger.warning('Data file not specified in directory, will scan.')
             data_files = os.listdir(self.maindir)
             data_files = [
-                f for f in data_files if f.endswith('data') or f.startswith('data')
+                f for f in data_files if f.endswith('data') or f.startswith('data') or f.endswith('dump')
             ]
             if not data_files:
                 data_files = os.listdir(self.maindir)
