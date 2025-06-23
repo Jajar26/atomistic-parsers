@@ -765,7 +765,7 @@ class LogParser(TextParser):
             # TODO improve matching of traj file
             traj_files = os.listdir(self.maindir)
             traj_files = [
-                f for f in traj_files if f.endswith('trj') or f.endswith('xyz')
+                f for f in traj_files if f.endswith('trj') or f.endswith('xyz') or f.endswith('dump')
             ]
             # further eliminate
             if len(traj_files) > 1:
