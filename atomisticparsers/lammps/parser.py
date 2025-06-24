@@ -1688,7 +1688,7 @@ class LammpsParser(MDParser):
                 traj_parser.mainfile = data_files[0]
                 traj_parser.auxilliary_files = [traj_file]
                 self._mdanalysistraj_parser = traj_parser
-            else :
+            elif data_files:
                 custom_options = self.log_parser.get('dump')[n][5:]
                 custom_options = [
                     option.replace('xu', 'x') for option in custom_options
