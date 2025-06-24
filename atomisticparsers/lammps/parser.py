@@ -1678,20 +1678,17 @@ class LammpsParser(MDParser):
         for n, traj_file in enumerate(traj_files):
             # parser initialization for each traj file cannot be avoided as there are
             # cases where traj files can share the same parser
-            file_type = self.log_parser.get(
-                'dump', [[1, 'all', traj_file[-3:]]] * (n + 1)
-            )[n][2]
-            if file_type == 'dcd' and data_files:
+            if traj_file.endswith('dcd') and data_files:
                 traj_parser = MDAnalysisParser(topology_format='DATA', format='DCD')
                 traj_parser.mainfile = data_files[0]
                 traj_parser.auxilliary_files = [traj_file]
                 self._mdanalysistraj_parser = traj_parser
-            elif file_type == 'xyz' and data_files:
+            elif traj_file.endswith('xyz') and data_files:
                 traj_parser = MDAnalysisParser(topology_format='DATA', format='XYZ')
                 traj_parser.mainfile = data_files[0]
                 traj_parser.auxilliary_files = [traj_file]
                 self._mdanalysistraj_parser = traj_parser
-            elif file_type == 'custom' and data_files:
+            else :
                 custom_options = self.log_parser.get('dump')[n][5:]
                 custom_options = [
                     option.replace('xu', 'x') for option in custom_options
